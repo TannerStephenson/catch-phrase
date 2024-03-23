@@ -22,6 +22,8 @@ app.get('/api/puzzles', (req, res) => {
 });
 
 const puzzles = [
-    { id: 1, emoji: "🚶🙅‍♂️🏃", interpretation: "Walk don't run" },
-    { id: 2, emoji: "🦇 🇷 👆", interpretation: "Batter up" },
+    { id: 1, emoji: "🚶🙅‍♂️🏃", answer: "Walk don't run" },
+    { id: 2, emoji: "🦇 🇷 👆", answer: "Batter up" },
+    { id: 3, emoji: "🙅‍♂️⛏️🫵👃", answer: "Don't pick your nose" },
+    { id: 4, emoji: "🙅‍♂️🤝👶", answer: "Don't shake the baby"}
   ];

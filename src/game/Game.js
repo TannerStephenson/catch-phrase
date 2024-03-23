@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
+
 export function Game() {
   const [puzzle, setPuzzle] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
@@ -21,12 +22,21 @@ export function Game() {
 
   
   const checkAnswer = () => {
-    if (userAnswer.trim().toLowerCase() === puzzle.interpretation.toLowerCase()) {
+    const trimmedUserAnswer = removeApostrophes(userAnswer).trim().toLowerCase();
+    const trimmedPuzzleAnswer = removeApostrophes(puzzle.answer).trim().toLowerCase();
+  
+    if (trimmedUserAnswer === trimmedPuzzleAnswer) {
       setFeedback('Correct! 🎉');
     } else {
       setFeedback('Oops! Try again. ❌');
     }
   };
+  
+  const removeApostrophes = (str) => {
+    return str.replace(/'/g, '');
+  };
+  
+  
 
   return (
     <div>
