@@ -4,9 +4,13 @@ class Player {
         this.points = 0;
     }
 
-    answerQuestion(isCorrect) {
-        if (isCorrect) {
-            this.points++;
-        }
+    setPoints(points) {
+        this.points = points;
+    }
+
+    getPoints() {
+        return this.points;
     }
 }
+console.log(typeof Player)
+module.exports = Player;
