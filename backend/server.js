@@ -40,12 +40,22 @@ app.post('/api/createplayer', (req, res) => {
   res.json(player);
 });
 
-app.post('api/getplayer', (req, res) => {
-  res.json(player);
+app.get('/api/getplayer', (req, res) => {
+  try {
+    if (!player) {
+      throw new Error('Player not found');
+    }
+    console.log('Player:', player);
+    res.json(player);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
+
 const puzzles = [
-    { id: 1, emoji: "🚶🙅‍♂️🏃", answer: "Walk don't run" },
+    { id: 1, emoji: "🚶🅱️🕓🫵🏃", answer: "Walk before you run" },
     { id: 2, emoji: "🦇 🇷 👆", answer: "Batter up" },
     { id: 3, emoji: "🙅‍♂️⛏️🫵👃", answer: "Don't pick your nose" },
     { id: 4, emoji: "🙅‍♂️🤝👶", answer: "Don't shake the baby"}

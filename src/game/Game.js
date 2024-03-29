@@ -7,15 +7,21 @@ export function Game() {
   const [puzzle, setPuzzle] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState('');
+  const [player, setPlayer] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/puzzles')
       .then(response => response.json())
       .then(data => setPuzzle(data))
       .catch(error => console.error('Error fetching puzzles:', error));
+    fetch('http://localhost:8080/api/getplayer')
+      .then(response => response.json())
+      .then(data => setPlayer(data))
+      .catch(error => console.error('Error fetching player:', error));
   }, []);
 
   
+
   const handleInputChange = (event) => {
     setUserAnswer(event.target.value);
   };
@@ -27,6 +33,7 @@ export function Game() {
   
     if (trimmedUserAnswer === trimmedPuzzleAnswer) {
       setFeedback('Correct! 🎉');
+      
     } else {
       setFeedback('Oops! Try again. ❌');
     }
