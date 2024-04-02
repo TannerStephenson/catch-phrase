@@ -23,6 +23,7 @@ export function Game() {
 
   const handleClose = () => {
     setDialogOpen(false);
+    startGame();
   };
 
   let handlePoints = (points) => {
@@ -62,10 +63,10 @@ export function Game() {
   
   return (
     <div>
-      <Dialog open={dialogOpen} onClose={handleClose}>
-        <DialogTitle>Press the button to start the Game
+      <Dialog open={dialogOpen}>
+        <DialogTitle>Press Start
           <br/>
-          <Button class="StartButton" color="inherit" onClick={startGame}>Start</Button>
+          <Button class="StartButton" color="inherit" onClick={handleClose}>Start</Button>
         </DialogTitle>
       </Dialog>
       <h1>Guess the Phrase</h1>
