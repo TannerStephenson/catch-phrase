@@ -12,5 +12,4 @@ class Player {
         return this.points;
     }
 }
-console.log(typeof Player)
 module.exports = Player;

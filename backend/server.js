@@ -53,10 +53,17 @@ app.get('/api/getplayer', (req, res) => {
   }
 });
 
+app.post('/api/setpoints', (req, res) => {
+  const { points } = req.body;
+  player.setPoints(points);
+  res.json(player);
+});
+
 
 const puzzles = [
     { id: 1, emoji: "🚶🅱️🕓🫵🏃", answer: "Walk before you run" },
     { id: 2, emoji: "🦇 🇷 👆", answer: "Batter up" },
     { id: 3, emoji: "🙅‍♂️⛏️🫵👃", answer: "Don't pick your nose" },
-    { id: 4, emoji: "🙅‍♂️🤝👶", answer: "Don't shake the baby"}
+    { id: 4, emoji: "🙅‍♂️🤝👶", answer: "Don't shake the baby"},
+    { id: 5, emoji: "🎥 🏫", answer: "Film school"}
   ];
