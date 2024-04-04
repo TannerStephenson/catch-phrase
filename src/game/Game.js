@@ -8,21 +8,41 @@ export function Game() {
   const [puzzle, setPuzzle] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   let [points, setPoints] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(25);
+  const [timeLeft, setTimeLeft] = useState(30);
   const [timerOn, setTimerOn] = useState(false);
-  let [dialogOpen, setDialogOpen] = useState(true);
-  //const [player, setPlayer] = useState(null);
+  let [startDialogOpen, setDialogOpen] = useState(true);
+  let [endDialogOpen, setEndDialogOpen] = useState(false);
 
   useEffect(() => {
-    getNewPuzzle();
-  }, []);
+    let interval = null;
+    if (timerOn && timeLeft > 0) {
+      interval = setInterval(() => {
+        setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
+      }, 1000);
+    } else if (!timerOn || timeLeft <= 0) {
+      clearInterval(interval);
+      if (timeLeft <= 0) {
+        setEndDialogOpen(true);
+      }
+    }
+    return () => clearInterval(interval);
+  }, [timerOn, timeLeft]);
 
   const startGame = () => {
     setTimerOn(true);
+    getNewPuzzle();
   }
 
   const handleClose = () => {
     setDialogOpen(false);
+    startGame();
+  };
+
+  const handleEndClose = () => {
+    setEndDialogOpen(false);
+    setPoints(0);
+    setTimeLeft(30);
+    setUserAnswer('');
     startGame();
   };
 
@@ -39,7 +59,6 @@ export function Game() {
       .then(response => response.json())
       .then(data => {
         setPuzzle(data)
-        setTimeLeft(timeLeft + 5);
       })
       .catch(error => console.error('Error fetching puzzles:', error));
   }
@@ -51,10 +70,16 @@ export function Game() {
   
     if (trimmedUserAnswer === trimmedPuzzleAnswer) {
       handlePoints(points + 1);
+      setTimeLeft(timeLeft + 3);
       setUserAnswer('');
       getNewPuzzle();
     }
-    console.log('Points:', points);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      checkAnswer();
+    }
   };
   
   const removeApostrophes = (str) => {
@@ -63,10 +88,16 @@ export function Game() {
   
   return (
     <div>
-      <Dialog open={dialogOpen}>
+      <Dialog open={startDialogOpen}>
         <DialogTitle>Press Start
           <br/>
-          <Button class="StartButton" color="inherit" onClick={handleClose}>Start</Button>
+          <Button color="inherit" onClick={handleClose}>Start</Button>
+        </DialogTitle>
+      </Dialog>
+      <Dialog open={endDialogOpen}>
+        <DialogTitle>Great Job! You got {points} points!
+          <br/>
+          <Button color="inherit" onClick={handleEndClose}>Start</Button>
         </DialogTitle>
       </Dialog>
       <h1>Guess the Phrase</h1>
@@ -78,7 +109,8 @@ export function Game() {
             label="Answer"
             variant="outlined"
             value={userAnswer} 
-            onChange={handleInputChange} 
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown} 
           />
           <Button
             variant="contained"

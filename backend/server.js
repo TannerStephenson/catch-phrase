@@ -65,5 +65,9 @@ const puzzles = [
     { id: 2, emoji: "🦇 🇷 👆", answer: "Batter up" },
     { id: 3, emoji: "🙅‍♂️⛏️🫵👃", answer: "Don't pick your nose" },
     { id: 4, emoji: "🙅‍♂️🤝👶", answer: "Don't shake the baby"},
-    { id: 5, emoji: "🎥 🏫", answer: "Film school"}
+    { id: 5, emoji: "🎥 🏫", answer: "Film school"},
+    { id: 6, emoji: "🦶 🏁", answer: "Foot race"},
+    { id: 7, emoji: "👨‍👩‍👧‍👦 🏠", answer: "Family home"},
+    { id: 8, emoji: "🏠 🏃", answer: "Home run"},
+    { id: 9, emoji: "🦇👨‍🦰", answer: "Batman"}
   ];
