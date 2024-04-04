@@ -89,16 +89,23 @@ export function Game() {
   return (
     <div>
       <Dialog open={startDialogOpen}>
-        <DialogTitle>Press Start
+        <DialogTitle>
+          Welcome to Guess the Phrase!
           <br/>
-          <Button color="inherit" onClick={handleClose}>Start</Button>
-        </DialogTitle>
+          Please press start to begin.
+          <br/>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button color="inherit" onClick={handleClose}>Start</Button>
+          </div>
+      </DialogTitle>
       </Dialog>
       <Dialog open={endDialogOpen}>
         <DialogTitle>Great Job! You got {points} points!
           <br/>
-          <Button color="inherit" onClick={handleEndClose}>Start</Button>
-        </DialogTitle>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button color="inherit" onClick={handleEndClose}>Start</Button>
+          </div>
+          </DialogTitle>
       </Dialog>
       <h1>Guess the Phrase</h1>
       {puzzle && (

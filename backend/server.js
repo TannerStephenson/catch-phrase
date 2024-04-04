@@ -69,5 +69,9 @@ const puzzles = [
     { id: 6, emoji: "🦶 🏁", answer: "Foot race"},
     { id: 7, emoji: "👨‍👩‍👧‍👦 🏠", answer: "Family home"},
     { id: 8, emoji: "🏠 🏃", answer: "Home run"},
-    { id: 9, emoji: "🦇👨‍🦰", answer: "Batman"}
+    { id: 9, emoji: "🦇👨‍🦰", answer: "Batman"},
+    { id: 10, emoji: "✋ 💡", answer: "Stop light"},
+    { id: 11, emoji: "☎️ #️⃣", answer: "Phone Number"},
+    { id: 12, emoji: "🐴👟", answer: "Horseshoe"},
+    { id: 13, emoji: "🏁 🚗", answer: "Race car"},
   ];
