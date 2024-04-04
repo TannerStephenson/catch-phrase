@@ -51,3 +51,9 @@ The application will be available at `http://localhost:3000`.
 - You'll be presented with an emoji puzzle. Enter your guess for the phrase it represents.
 - Click the "Submit" button to see if your guess is correct. You'll receive immediate feedback.
 - Have fun and challenge yourself with as many puzzles as you can!
+
+## TODO
+* Deploy online.
+* Implement login.
+* Implement more puzzles.
+* Working menus.
