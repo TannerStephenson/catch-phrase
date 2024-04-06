@@ -55,13 +55,14 @@ export function Game() {
   };
 
   const getNewPuzzle = () => {
-    fetch('http://localhost:8080/api/puzzles')
+    fetch(`${process.env.REACT_APP_API_URL}/api/puzzles`)
       .then(response => response.json())
       .then(data => {
-        setPuzzle(data)
+        setPuzzle(data);
       })
       .catch(error => console.error('Error fetching puzzles:', error));
-  }
+  };
+  
 
   
   const checkAnswer = () => {

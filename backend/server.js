@@ -1,8 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 8080;
 const Player = require('./Player');
 
+
+app.use(cors());
+//app.use(express.static('../build'));
 app.use(express.json());
 
 const createPlayer = (username) => {
@@ -12,6 +16,11 @@ const createPlayer = (username) => {
 app.get('/', (req, res) => {
   res.send('Hello from the backend!');
 });
+
+/*app.get('*', (req, res) => {
+  res.sendFile('../build/index.html');
+});*/
+
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
