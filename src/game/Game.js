@@ -55,7 +55,7 @@ export function Game() {
   };
 
   const getNewPuzzle = () => {
-    fetch(`https://catch-phrase-t2wy.onrender.com/api/puzzles`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/puzzles`)
       .then(response => response.json())
       .then(data => {
         setPuzzle(data);
