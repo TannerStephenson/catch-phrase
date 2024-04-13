@@ -1,0 +1,106 @@
+[debug] [2024-04-09T02:11:48.049Z] ----------------------------------------------------------------------
+[debug] [2024-04-09T02:11:48.050Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2024-04-09T02:11:48.050Z] CLI Version:   13.7.0
+[debug] [2024-04-09T02:11:48.051Z] Platform:      darwin
+[debug] [2024-04-09T02:11:48.051Z] Node Version:  v20.11.1
+[debug] [2024-04-09T02:11:48.051Z] Time:          Mon Apr 08 2024 19:11:48 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-04-09T02:11:48.051Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-09T02:11:48.109Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-09T02:11:48.109Z] > authorizing via signed-in user (tannerstephenson2@gmail.com)
+[debug] [2024-04-09T02:11:48.109Z] [iam] checking project catch-phrase-2467f for permissions ["firebase.projects.get"]
+[debug] [2024-04-09T02:11:48.110Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions [none]
+[debug] [2024-04-09T02:11:48.110Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions x-goog-quota-user=projects/catch-phrase-2467f
+[debug] [2024-04-09T02:11:48.110Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-09T02:11:48.289Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions 200
+[debug] [2024-04-09T02:11:48.289Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-09T02:11:48.290Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f [none]
+[debug] [2024-04-09T02:11:48.534Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f 200
+[debug] [2024-04-09T02:11:48.534Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f {"projectId":"catch-phrase-2467f","projectNumber":"402991650383","displayName":"Catch Phrase","name":"projects/catch-phrase-2467f","resources":{"hostingSite":"catch-phrase-2467f","realtimeDatabaseInstance":"catch-phrase-2467f-default-rtdb"},"state":"ACTIVE","etag":"1_f3ddaa2c-4541-4453-a103-e0f0ba87d417"}
+[info] 
+[info] === Serving from '/Users/stephenson/Documents/React/catch-phrase'...
+[info] 
+[debug] [2024-04-09T02:11:48.541Z] defaultcredentials: writing to file /Users/stephenson/.config/firebase/tannerstephenson2_gmail_com_application_default_credentials.json
+[debug] [2024-04-09T02:11:48.541Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/catch-phrase-2467f/sites 
+[debug] [2024-04-09T02:11:48.544Z] Setting GAC to /Users/stephenson/.config/firebase/tannerstephenson2_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/stephenson/.config/firebase/tannerstephenson2_gmail_com_application_default_credentials.json"}}
+[debug] [2024-04-09T02:11:48.545Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/adminSdkConfig [none]
+[debug] [2024-04-09T02:11:48.676Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/adminSdkConfig 200
+[debug] [2024-04-09T02:11:48.676Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/adminSdkConfig {"projectId":"catch-phrase-2467f","databaseURL":"https://catch-phrase-2467f-default-rtdb.firebaseio.com","storageBucket":"catch-phrase-2467f.appspot.com"}
+[debug] [2024-04-09T02:11:49.166Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/catch-phrase-2467f/sites 200
+[debug] [2024-04-09T02:11:49.166Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/catch-phrase-2467f/sites {"sites":[{"name":"projects/catch-phrase-2467f/sites/catch-phrase-2467f","defaultUrl":"https://catch-phrase-2467f.web.app","appId":"1:402991650383:web:342dcbccbec7c97bc8bc3a","type":"DEFAULT_SITE"}]}
+[debug] [2024-04-09T02:11:49.166Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/webApps/1:402991650383:web:342dcbccbec7c97bc8bc3a/config [none]
+[debug] [2024-04-09T02:11:49.463Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/webApps/1:402991650383:web:342dcbccbec7c97bc8bc3a/config 200
+[debug] [2024-04-09T02:11:49.463Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/webApps/1:402991650383:web:342dcbccbec7c97bc8bc3a/config {"projectId":"catch-phrase-2467f","appId":"1:402991650383:web:342dcbccbec7c97bc8bc3a","databaseURL":"https://catch-phrase-2467f-default-rtdb.firebaseio.com","storageBucket":"catch-phrase-2467f.appspot.com","apiKey":"AIzaSyBPkIyfcggAQUYIjxMinw1r1mnnUftkiaA","authDomain":"catch-phrase-2467f.firebaseapp.com","messagingSenderId":"402991650383","measurementId":"G-GY8S9K1RGP"}
+[debug] [2024-04-09T02:11:49.471Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f [none]
+[debug] [2024-04-09T02:11:49.584Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f 200
+[debug] [2024-04-09T02:11:49.584Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f {"projectId":"catch-phrase-2467f","projectNumber":"402991650383","displayName":"Catch Phrase","name":"projects/catch-phrase-2467f","resources":{"hostingSite":"catch-phrase-2467f","realtimeDatabaseInstance":"catch-phrase-2467f-default-rtdb"},"state":"ACTIVE","etag":"1_f3ddaa2c-4541-4453-a103-e0f0ba87d417"}
+[info] i  functions: Watching "/Users/stephenson/Documents/React/catch-phrase/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/stephenson/Documents/React/catch-phrase/functions\" for Cloud Functions..."}}
+[info] i  hosting[catch-phrase-2467f]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting[catch-phrase-2467f]: Local server: http://localhost:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5002\u001b[22m\u001b[24m"}}
+[debug] [2024-04-09T02:11:49.698Z] Validating nodejs source
+[debug] [2024-04-09T02:11:50.130Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-04-09T02:11:50.130Z] Building nodejs source
+[debug] [2024-04-09T02:11:50.131Z] Failed to find version of module node: reached end of search path /Users/stephenson/Documents/React/catch-phrase/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[debug] [2024-04-09T02:11:50.132Z] Could not find functions.yaml. Must use http discovery
+[error] ⬢  functions: Failed to load function definition from source: FirebaseError: Failed to find location of Firebase Functions SDK. Please file a bug on Github (https://github.com/firebase/firebase-tools/). {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Failed to find location of Firebase Functions SDK. Please file a bug on Github (https://github.com/firebase/firebase-tools/)."}}
+[debug] [2024-04-09T02:13:43.544Z] ----------------------------------------------------------------------
+[debug] [2024-04-09T02:13:43.545Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2024-04-09T02:13:43.545Z] CLI Version:   13.7.0
+[debug] [2024-04-09T02:13:43.545Z] Platform:      darwin
+[debug] [2024-04-09T02:13:43.546Z] Node Version:  v20.11.1
+[debug] [2024-04-09T02:13:43.546Z] Time:          Mon Apr 08 2024 19:13:43 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-04-09T02:13:43.546Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-09T02:13:43.603Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-09T02:13:43.603Z] > authorizing via signed-in user (tannerstephenson2@gmail.com)
+[debug] [2024-04-09T02:13:43.603Z] [iam] checking project catch-phrase-2467f for permissions ["firebase.projects.get"]
+[debug] [2024-04-09T02:13:43.604Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions [none]
+[debug] [2024-04-09T02:13:43.604Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions x-goog-quota-user=projects/catch-phrase-2467f
+[debug] [2024-04-09T02:13:43.604Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-09T02:13:43.774Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions 200
+[debug] [2024-04-09T02:13:43.775Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/catch-phrase-2467f:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-04-09T02:13:43.775Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f [none]
+[debug] [2024-04-09T02:13:43.973Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f 200
+[debug] [2024-04-09T02:13:43.973Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f {"projectId":"catch-phrase-2467f","projectNumber":"402991650383","displayName":"Catch Phrase","name":"projects/catch-phrase-2467f","resources":{"hostingSite":"catch-phrase-2467f","realtimeDatabaseInstance":"catch-phrase-2467f-default-rtdb"},"state":"ACTIVE","etag":"1_f3ddaa2c-4541-4453-a103-e0f0ba87d417"}
+[info] 
+[info] === Serving from '/Users/stephenson/Documents/React/catch-phrase'...
+[info] 
+[debug] [2024-04-09T02:13:43.983Z] defaultcredentials: writing to file /Users/stephenson/.config/firebase/tannerstephenson2_gmail_com_application_default_credentials.json
+[debug] [2024-04-09T02:13:43.984Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/catch-phrase-2467f/sites 
+[debug] [2024-04-09T02:13:43.988Z] Setting GAC to /Users/stephenson/.config/firebase/tannerstephenson2_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/stephenson/.config/firebase/tannerstephenson2_gmail_com_application_default_credentials.json"}}
+[debug] [2024-04-09T02:13:43.989Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/adminSdkConfig [none]
+[debug] [2024-04-09T02:13:44.129Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/adminSdkConfig 200
+[debug] [2024-04-09T02:13:44.129Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/catch-phrase-2467f/adminSdkConfig {"projectId":"catch-phrase-2467f","databaseURL":"https://catch-phrase-2467f-default-rtdb.firebaseio.com","storageBucket":"catch-phrase-2467f.appspot.com"}
+[debug] [2024-04-09T02:13:44.141Z] Error: listen EADDRINUSE: address already in use ::1:5001
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at GetAddrInfoReqWrap.doListen [as callback] (node:net:2075:7)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:109:8)
+[error] 
+[error] Error: An unexpected error has occurred.
