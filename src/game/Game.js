@@ -65,20 +65,20 @@ export function Game() {
       });
   };
 
-  const handlePoints = (additionalPoints) => {
-    setPoints(prevPoints => prevPoints + additionalPoints);
-  }
-
   const checkAnswer = () => {
     const trimmedUserAnswer = removeApostrophes(userAnswer).trim().toLowerCase();
     const trimmedPuzzleAnswer = removeApostrophes(puzzle.answer).trim().toLowerCase();
 
     if (trimmedUserAnswer === trimmedPuzzleAnswer) {
-      handlePoints(1);  // Increment points by 1
-      setTimeLeft(timeLeft + 3);  // Add 3 seconds to the timer
+      handlePoints(points + 1);
+      setTimeLeft(timeLeft + 3);
       setUserAnswer('');
       getNewPuzzle();
     }
+  };
+
+  const handlePoints = (additionalPoints) => {
+    setPoints(prevPoints => prevPoints + additionalPoints);
   };
 
   const handleKeyDown = (event) => {
@@ -108,7 +108,7 @@ export function Game() {
         <DialogTitle>Great Job! You got {points} points!
           <br />
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Button color="inherit" onClick={handleEndClose}>Start Again</Button>
+            <Button color="inherit" onClick={handleEndClose}>Start</Button>
           </div>
         </DialogTitle>
       </Dialog>
@@ -116,8 +116,10 @@ export function Game() {
         <DialogTitle>
           Loading...
           <br />
-          I'm currently using a backend service that is on the free tier,
-          so it may take around 50 seconds or less to wake up. Please wait!
+          Hi! If you're seeing this message it is because
+          the backend is hosted on a free tier service. This means
+          that it takes awhile to wake up the server. Please be patient
+          while the game loads. Thank you.
         </DialogTitle>
       </Dialog>
       <h1>Guess the Phrase</h1>
