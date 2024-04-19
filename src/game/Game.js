@@ -7,11 +7,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 export function Game() {
   const [puzzle, setPuzzle] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
-  let [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
   const [timerOn, setTimerOn] = useState(false);
-  let [startDialogOpen, setDialogOpen] = useState(true);
-  let [endDialogOpen, setEndDialogOpen] = useState(false);
+  const [startDialogOpen, setDialogOpen] = useState(true);
+  const [endDialogOpen, setEndDialogOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let interval = null;
@@ -46,32 +47,35 @@ export function Game() {
     startGame();
   };
 
-  let handlePoints = (points) => {
-    setPoints(points);
-  }
-
   const handleInputChange = (event) => {
     setUserAnswer(event.target.value);
   };
 
   const getNewPuzzle = () => {
+    setLoading(true); // Show loading dialog
     fetch(`https://catch-phrase-t2wy.onrender.com/api/puzzles`)
       .then(response => response.json())
       .then(data => {
         setPuzzle(data);
+        setLoading(false); // Hide loading dialog
       })
-      .catch(error => console.error('Error fetching puzzles:', error));
+      .catch(error => {
+        console.error('Error fetching puzzles:', error);
+        setLoading(false); // Ensure loading dialog is hidden even on error
+      });
   };
-  
 
-  
+  const handlePoints = (additionalPoints) => {
+    setPoints(prevPoints => prevPoints + additionalPoints);
+  }
+
   const checkAnswer = () => {
     const trimmedUserAnswer = removeApostrophes(userAnswer).trim().toLowerCase();
     const trimmedPuzzleAnswer = removeApostrophes(puzzle.answer).trim().toLowerCase();
-  
+
     if (trimmedUserAnswer === trimmedPuzzleAnswer) {
-      handlePoints(points + 1);
-      setTimeLeft(timeLeft + 3);
+      handlePoints(1);  // Increment points by 1
+      setTimeLeft(timeLeft + 3);  // Add 3 seconds to the timer
       setUserAnswer('');
       getNewPuzzle();
     }
@@ -82,31 +86,39 @@ export function Game() {
       checkAnswer();
     }
   };
-  
+
   const removeApostrophes = (str) => {
     return str.replace(/'/g, '');
   };
-  
+
   return (
     <div>
       <Dialog open={startDialogOpen}>
         <DialogTitle>
           Welcome to Guess the Phrase!
-          <br/>
+          <br />
           Please press start to begin.
-          <br/>
+          <br />
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Button color="inherit" onClick={handleClose}>Start</Button>
           </div>
-      </DialogTitle>
+        </DialogTitle>
       </Dialog>
       <Dialog open={endDialogOpen}>
         <DialogTitle>Great Job! You got {points} points!
-          <br/>
+          <br />
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Button color="inherit" onClick={handleEndClose}>Start</Button>
+            <Button color="inherit" onClick={handleEndClose}>Start Again</Button>
           </div>
-          </DialogTitle>
+        </DialogTitle>
+      </Dialog>
+      <Dialog open={loading}>
+        <DialogTitle>
+          Loading...
+          <br />
+          I'm currently using a backend service that is on the free tier,
+          so it may take around 50 seconds or less to wake up. Please wait!
+        </DialogTitle>
       </Dialog>
       <h1>Guess the Phrase</h1>
       {puzzle && (
